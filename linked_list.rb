@@ -61,13 +61,27 @@ class LinkedList
 
     false
   end
+
+  def find(val)
+    node = head
+    index = 0
+    until node.val.nil?
+      return index if node.val == val
+
+      index += 1
+      node = node.next_node
+    end
+    nil
+  end
 end
 
 arr = LinkedList.new
 
-arr.append(322)
-arr.append(43)
+arr.append(1)
 arr.append(2)
-arr.append(422)
-arr.prepend(999)
-p arr.contains?(999)
+arr.append(3)
+arr.append(4)
+arr.append(5)
+arr.append(6)
+
+p arr.find(1)
