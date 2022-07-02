@@ -44,6 +44,13 @@ class LinkedList
     current_node.next_node = nil
     tail
   end
+
+  def at(index)
+    # traverse node, if it matches index return node
+    node = head
+    node = node.next_node until node.val == index
+    node
+  end
 end
 
 arr = LinkedList.new
@@ -51,5 +58,5 @@ arr = LinkedList.new
 arr.append(1)
 arr.append(2)
 arr.append(3)
-arr.pop
-p arr
+arr.append(422)
+p arr.at(422)
