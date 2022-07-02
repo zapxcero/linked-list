@@ -53,25 +53,30 @@ class LinkedList
 
   def contains?(val)
     node = head
-    until node.val.nil?
-      return true if node.val == val
+    begin
+      until node.val.nil?
+        return true if node.val == val
 
-      node = node.next_node
+        node = node.next_node
+      end
+    rescue StandardError
+      false
     end
-
-    false
   end
 
   def find(val)
     node = head
     index = 0
-    until node.val.nil?
-      return index if node.val == val
+    begin
+      until node.val.nil?
+        return index if node.val == val
 
-      index += 1
-      node = node.next_node
+        index += 1
+        node = node.next_node
+      end
+    rescue StandardError
+      nil
     end
-    nil
   end
 end
 
@@ -79,9 +84,5 @@ arr = LinkedList.new
 
 arr.append(1)
 arr.append(2)
-arr.append(3)
-arr.append(4)
-arr.append(5)
-arr.append(6)
 
-p arr.find(1)
+p arr.contains?(7)
