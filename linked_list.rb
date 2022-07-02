@@ -46,17 +46,28 @@ class LinkedList
   end
 
   def at(index)
-    # traverse node, if it matches index return node
     node = head
     node = node.next_node until node.val == index
     node
+  end
+
+  def contains?(val)
+    node = head
+    until node.val.nil?
+      return true if node.val == val
+
+      node = node.next_node
+    end
+
+    false
   end
 end
 
 arr = LinkedList.new
 
-arr.append(1)
+arr.append(322)
+arr.append(43)
 arr.append(2)
-arr.append(3)
 arr.append(422)
-p arr.at(422)
+arr.prepend(999)
+p arr.contains?(999)
