@@ -34,8 +34,15 @@ class LinkedList
   def tail
     current_node = head
     current_node = current_node.next_node until current_node.next_node.nil?
-
     current_node
+  end
+
+  def pop
+    current_node = head
+    current_node = current_node.next_node until current_node.next_node == tail
+    tail = current_node.next_node
+    current_node.next_node = nil
+    tail
   end
 end
 
@@ -44,12 +51,5 @@ arr = LinkedList.new
 arr.append(1)
 arr.append(2)
 arr.append(3)
-arr.append(3)
-arr.append(3)
-arr.append(3)
-arr.append(3)
-arr.append(3)
-arr.append(3)
-arr.append(10)
-
-p arr.tail.val
+arr.pop
+p arr
