@@ -78,11 +78,28 @@ class LinkedList
       nil
     end
   end
+
+  def to_s
+    node = head
+
+    begin
+      until node.val.nil?
+        print "(#{node.val}) -> "
+        node = node.next_node
+      end
+    rescue StandardError
+    end
+  end
 end
 
 arr = LinkedList.new
 
 arr.append(1)
 arr.append(2)
+arr.append(3)
+arr.append(4)
+arr.append(5)
+arr.append(6)
+arr.append(7)
 
-p arr.contains?(7)
+p arr.to_s
